@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void Smile(void)
+{
+	printf("Smile!");
+}
+
+int main(void)
+{
+	for(int i = 3; i >= 1; i--){
+		for(int j = i; j >= 1; j--){
+			Smile();
+		}
+		printf("\n"); 
+	}
+	return 0;
+}

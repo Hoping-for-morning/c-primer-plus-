@@ -1,0 +1,22 @@
+//小哈的qq经过加密，通过删除第一个将第二个移到队尾的方式解密
+#include <stdio.h>
+int main ()
+{
+	//建立一个队列 
+	int q[101] = {0,6,3,1,7,5,8,9,2,4}, head, tail;
+	//用头尾两个下标实现 
+	head = 1;
+	tail = 10;
+	//当头尾相接时，停止循环 
+	while(head < tail){
+		//将头一个删除并把它打印出来 
+		printf("%d ", q[head]);
+		head++;
+		//把后面那个移到队尾 
+		q[tail] = q[head];
+		tail++;
+		//移到队尾后，要移动到下一格 
+		head++;
+	}
+	return 0;
+}

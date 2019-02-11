@@ -1,0 +1,35 @@
+//利用栈来判断回文字 
+#include <stdio.h>
+#include <string.h>
+int main(){
+	char a[101], s[101];
+	int i,len,mid,next,top;
+	
+	gets(a);			//读入一行字符串 
+	len = strlen(a);	//求字符串的长度 
+	mid = len / 2 - 1;	//求字符串的中点 
+	
+	top = 0;  			//将栈初始化 
+	
+	for(i = 0; i <= mid; i++)	//将mid前的字符一个一个压入00 
+		s[++top] = a[i];
+	
+	if(len % 2 == 0)		//判断字符串长度是奇数还是偶数 
+		next = mid + 1;
+	else
+		next = mid + 2;
+		
+	for(i = next; i <= len-1; i++) //开始匹配 
+	{
+		if(a[i]!=s[top])
+			break;
+		top--;
+	}
+	
+	if(top == 0)		//如果top的值为0，则说明栈内所有的字符都被一一匹配了 
+		printf("YES");
+	else
+		printf("NO");
+	
+	return 0;
+} 
